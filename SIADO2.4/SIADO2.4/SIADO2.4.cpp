@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <Windows.h>
 using namespace std;
 //Узел дерева
@@ -21,10 +21,19 @@ public:
 			return;
 		}
 		//Дерево есть
-		if (a > (*t)->info)
+		/*if (a > (*t)->info)
 			push(a, &(*t)->r); //Если а больше текущего элемента, кладём его вправо
 		else
-			push(a, &(*t)->l); //Иначе - влево
+			push(a, &(*t)->l); //Иначе - влево */
+		//New
+		else {
+		if (tree_height((*t)->l) <= tree_height((*t)->r)) {
+			push(a,&(*t)->l);
+		}
+		else {
+			push(a, &(*t)->r);
+		}
+	}
 	}
 
 	void print(node* t, int u) {
